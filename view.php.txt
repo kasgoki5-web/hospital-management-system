@@ -1,0 +1,33 @@
+<?php
+
+include 'db.php';
+
+$result = mysqli_query(
+$conn,
+"SELECT * FROM patients"
+);
+
+echo "<h2>Patient Details</h2>";
+
+echo "<table border='1'>";
+
+echo "<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Age</th>
+<th>Disease</th>
+</tr>";
+
+while($row=mysqli_fetch_assoc($result))
+{
+echo "<tr>";
+echo "<td>".$row['id']."</td>";
+echo "<td>".$row['patient_name']."</td>";
+echo "<td>".$row['age']."</td>";
+echo "<td>".$row['disease']."</td>";
+echo "</tr>";
+}
+
+echo "</table>";
+
+?>
